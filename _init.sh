@@ -15,17 +15,6 @@ fi
 [ ! -n "$ZSH_VERSION" ] && return
 
 #-----------------------------------------------------
-#
-# Antibody: Load the plugins before scripts
-#
-#source ${ZSHCONFIG}/antibody-init.zsh
-#
-#
-#source ${ZSHCONFIG}/zsh-managed-plugins.zsh
-#
-#-----------------------------------------------------
-
-#-----------------------------------------------------
 # bootstrap the zplugin script
 #
 source "$HOME/.zplugin/bin/zplugin.zsh"
