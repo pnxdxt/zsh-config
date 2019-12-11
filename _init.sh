@@ -24,7 +24,8 @@ source "$HOME/.zsh-config/zplugin-init.zsh"
 #-----------------------------------------------------
 
 # https://github.com/sindresorhus/pure#options
-export PURE_PROMPT_SYMBOL='λ'
+# export PURE_PROMPT_SYMBOL='λ'
+export PURE_PROMPT_SYMBOL='$'
 
 #-----------------------------------------------------
 # Setting autoloaded functions
