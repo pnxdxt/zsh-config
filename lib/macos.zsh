@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
-# vim:syntax=sh
-# vim:filetype=sh
+# vim:syntax=zsh
+# vim:filetype=zsh
 
 #
 # Define common system-wide configurations
@@ -10,13 +10,17 @@
 # For macOS where GNU ls is installed via homebrew as `gls`
 case $SYSTEM in
   Darwin)
-    alias ls='/usr/local/bin/gls --color=auto'
+	if which gls >/dev/null 2>&1; then
+	  alias ls="gls --color=auto"
+	  alias ll="gls -l --color=auto"
+	fi
   ;;
   Linux)
     alias ls='ls --color=auto'
+	alias ll="ls -l --color=auto"
   ;;
 esac
-#
+
 alias ll='ls -lFh'     			# long (-l), types classify (-F),human readable (-h)
 alias l='ll'
 alias ls.all='ls -lAFh' 		# long list, show almost all
@@ -39,10 +43,10 @@ alias df='df -h'
 #
 # Pipe Aliases
 #
-alias grep='egrep --color=auto '
-alias egrep='egrep --color=auto '
+alias grep='grep -I -n -H --color=auto '
+alias egrep='egrep -I -n -H h --color=auto '
 alias L=' | less '
-alias G=' | egrep --color=auto '
+alias G=' | egrep -I -n -H --color=auto '
 alias T=' | tail '
 alias H=' | head '
 alias W=' | wc -l '
@@ -76,10 +80,9 @@ export PATH=$PATH:/opt/X11/bin
 # /etc/paths.d/MacGPG2
 export PATH=$PATH:/usr/local/MacGPG2/bin
 
-#
 # GNU Core Utils
 # brew info coreutils
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$HOME/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 # scutil
 #
