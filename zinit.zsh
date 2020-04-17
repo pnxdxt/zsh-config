@@ -12,8 +12,8 @@ zinit light zsh-users/zsh-completions
 zinit ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
 zinit light zdharma/fast-syntax-highlighting
 
-#zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
-#zinit light direnv/direnv
+zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
+zinit light direnv/direnv
 
 #zinit ice wait"0" lucid
 # must load it otherwise bindkeys won't work
