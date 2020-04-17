@@ -6,10 +6,10 @@ ZSHCONFIG=${HOME}/.zsh-config
 
 function zsh_bootstrap(){
 
-    # need zplugin
-    echo "Cloning zplugin"
-    mkdir ~/.zplugin
-    git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
+    # need zinit
+    echo "Cloning zinit"
+    mkdir ~/.zinit
+    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
     echo "Link resource files to ${HOME}"
     ln -sf ${ZSHCONFIG}/zlogin ${HOME}/.zlogin
