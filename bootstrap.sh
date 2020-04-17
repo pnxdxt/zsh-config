@@ -4,11 +4,11 @@
 
 ZSHCONFIG=${HOME}/.zsh-config
 
-function zsh_bootstrap(){
+function zsh_bootstrap() {
 
     # need zinit
     echo "Cloning zinit"
-    mkdir ~/.zinit
+    mkdir -p ~/.zinit
     git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
     echo "Link resource files to ${HOME}"
@@ -19,7 +19,7 @@ function zsh_bootstrap(){
     echo "Done!"
 }
 
-function zsh_cleanup(){
+function zsh_cleanup() {
     echo "Clean up links to resource files at ${HOME}"
     rm -f ${HOME}/.zlogin ${HOME}/.zprofile ${HOME}/.zshenv ${HOME}/.zshrc
     echo "Done!"
