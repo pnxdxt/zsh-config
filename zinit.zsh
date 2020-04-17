@@ -27,13 +27,16 @@ zinit light junegunn/fzf
 
 #zinit light mafredri/zsh-async
 # Load the pure theme, with zsh-async library that's bundled with it
-# zinit ice pick"async.zsh" src"pure.zsh" lucid; zinit light sindresorhus/pure
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
+zplugin ice pick"async.zsh" src"pure.zsh" lucid
+zplugin light sindresorhus/pure
+
+# Comment above and uncomment this to use powerlevel10k
+#zinit ice depth=1
+#zinit light romkatv/powerlevel10k
 
 zinit ice as"completion" lucid
 # zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-zinit as'completion' for OMZ::plugins/docker/_docker
+# zinit as'completion' for OMZ::plugins/docker/_docker
 
 # https://github.com/laggardkernel/git-ignore
 zinit ice pick'init.zsh' blockf
@@ -48,13 +51,13 @@ alias gi="git-ignore"
 #zinit snippet OMZ::plugins/python/python.plugin.zsh
 #zinit ice wait"0" lucid
 #zinit snippet OMZ::plugins/ruby/ruby.plugin.zsh
-zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
-zinit snippet OMZ::plugins/terraform/terraform.plugin.zsh
-zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
-zinit snippet OMZ::plugins/ansible/ansible.plugin.zsh
-zinit snippet OMZ::plugins/nvm/nvm.plugin.zsh
-zinit snippet OMZ::plugins/vagrant/vagrant.plugin.zsh
-zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+#zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
+#zinit snippet OMZ::plugins/terraform/terraform.plugin.zsh
+#zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
+#zinit snippet OMZ::plugins/ansible/ansible.plugin.zsh
+#zinit snippet OMZ::plugins/nvm/nvm.plugin.zsh
+#zinit snippet OMZ::plugins/vagrant/vagrant.plugin.zsh
+#zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
 # NOTE: AWS completion is already in place with pyenv installation
 # zinit snippet OMZ::plugins/aws/aws.plugin.zsh
