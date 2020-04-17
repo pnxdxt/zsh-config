@@ -4,7 +4,7 @@
 
 # Execute code in the background to not affect the current session
 (
-    # <https://github.com/zimfw/zimfw/blob/master/login_init.zsh>
+    # <https://github.com/zimfw/zimfw/blob/master/src/templates/login_init.zsh.erb>
     setopt LOCAL_OPTIONS EXTENDED_GLOB
     autoload -U zrecompile
     local ZSHCONFIG=~/.zsh-config
