@@ -14,9 +14,9 @@ export ZSHCONFIG=${ZDOTDIR:-$HOME}/.zsh-config
 ZSH_INIT=${ZSHCONFIG}/_init.sh
 
 if [[ -s ${ZSH_INIT} ]]; then
-    source ${ZSH_INIT}
+  source ${ZSH_INIT}
 else
-    echo "Could not find the init script ${ZSH_INIT}"
+  echo "Could not find the init script ${ZSH_INIT}"
 fi
 
 #
@@ -26,30 +26,27 @@ fi
 autoload -Uz compinit
 
 case $SYSTEM in
-  Darwin)
-    if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
-      compinit;
-    else
-      compinit -C;
-    fi
-    ;;
-  Linux)
-    # not yet match GNU & BSD stat
+Darwin)
+  if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
+    compinit
+  else
+    compinit -C
+  fi
+  ;;
+Linux)
+  # not yet match GNU & BSD stat
   ;;
 esac
 
-# see zplugin-init.zsh with Turbo Mode
+# see zinit.zsh with Turbo Mode
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://direnv.net/
-# see zplugin-init.zsh
+# see zinit.zsh
 # https://github.com/zdharma/zplugin/wiki/Direnv-explanation
-#eval "$(direnv hook zsh)"
-
+# Set path for non-default homebrew install
+# export PATH=$PATH:$HOME/usr/local/bin
+# eval "$(direnv hook zsh)"
 
 # Private script here
-if [ -d ~/.private ]; then
-    for f in ~/.private/*sh; do
-        source "$f"
-    done
-fi
+[ -f ~/.private.zsh ] && source ${HOME}/.private.zsh
