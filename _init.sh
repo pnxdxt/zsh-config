@@ -2,12 +2,15 @@
 # vim:syntax=sh
 # vim:filetype=sh
 
-if [[ "x$SYSTEM" = "xDarwin"  ]]; then
+if [[ "x$SYSTEM" = "xDarwin" ]]; then
     # system executables
     #export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
     # local system binaries
     export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 fi
+
+# Non-default homebrew install
+export PATH=$PATH:$HOME/usr/local/bin
 
 #-----------------------------------------------------
 # ensure to only execute on ZSH
@@ -15,12 +18,12 @@ fi
 [ ! -n "$ZSH_VERSION" ] && return
 
 #-----------------------------------------------------
-# bootstrap the zplugin script
+# bootstrap the zinit script
 #
-source "$HOME/.zplugin/bin/zplugin.zsh"
+source "$HOME/.zinit/bin/zinit.zsh"
 
 # and load the plugins
-source "$HOME/.zsh-config/zplugin-init.zsh"
+source "$HOME/.zsh-config/zinit.zsh"
 #-----------------------------------------------------
 
 # https://github.com/sindresorhus/pure#options
@@ -46,19 +49,18 @@ unset my_zsh_fpath
 #
 my_zsh_lib=${ZSHCONFIG}/lib
 if [[ -d "$my_zsh_lib" ]]; then
-   for file in $my_zsh_lib/*.zsh; do
-      source $file
-   done
+    for file in $my_zsh_lib/*.zsh; do
+        source $file
+    done
 fi
 unset my_zsh_lib
-
 
 #-----------------------------------------------------
 # Development stuffs
 #
 dev_config_init=${SCRIPTS}/dev-config/_init.sh
 
-[[ -f "$dev_config_init"  ]] && source "$dev_config_init"
+[[ -f "$dev_config_init" ]] && source "$dev_config_init"
 
 unset dev_config_init
 
