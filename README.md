@@ -26,6 +26,7 @@ I use [zinit](https://github.com/zdharma/zinit) with Turbo Mode to accelerate th
 ## Credits
 
 Forked from: https://github.com/tracphil/my-zsh
+
 Refactored from: https://htr3n.github.io/2018/07/faster-zsh/
 
 ## License
