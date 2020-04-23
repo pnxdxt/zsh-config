@@ -1,1 +1,1 @@
-export PATH=$PATH:Documents/flutter/bin
+export PATH=$PATH:$HOME/Flutter/bin
