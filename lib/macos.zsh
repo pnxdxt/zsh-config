@@ -2,33 +2,31 @@
 # vim:syntax=zsh
 # vim:filetype=zsh
 
-#
 # Define common system-wide configurations
 
 # GNU ls aliases
-#
 # For macOS where GNU ls is installed via homebrew as `gls`
 case $SYSTEM in
-  Darwin)
+Darwin)
 	if which gls >/dev/null 2>&1; then
-	  alias ls="gls --color=auto"
-	  alias ll="gls -l --color=auto"
+		alias ls="gls --color=auto"
+		alias ll="gls -l --color=auto"
 	fi
-  ;;
-  Linux)
-    alias ls='ls --color=auto'
+	;;
+Linux)
+	alias ls='ls --color=auto'
 	alias ll="ls -l --color=auto"
-  ;;
+	;;
 esac
 
-alias ll='ls -lFh'     			# long (-l), types classify (-F),human readable (-h)
 alias l='ll'
-alias ls.all='ls -lAFh' 		# long list, show almost all
+alias ll='ls -lFh'       # long (-l), types classify (-F),human readable (-h)
+alias ls.all='ls -lAFh'  # long list, show almost all
+alias ls.dot='ls -ld .*' # show dot files, list dirs non-recursively (-d)
+alias ls.id='ls -nFh'    # show numeric FID and GID (-n)
 alias ls.sort.time='ls -tlFh'
 alias ls.sort.size='ls -SlFh'
-alias ls.dot='ls -ld .*'		# show dot files, list dirs non-recursively (-d)
 alias ls.recursive='ls -R'
-alias ls.id='ls -nFh'			# show numeric FID and GID (-n)
 
 # diff
 alias diff='colordiff'
@@ -40,9 +38,7 @@ alias ....='cd ../../../..'
 
 alias df='df -h'
 
-#
 # Pipe Aliases
-#
 alias grep='grep -I -n -H --color=auto '
 alias egrep='egrep -I -n -H h --color=auto '
 alias L=' | less '
@@ -52,13 +48,13 @@ alias H=' | head '
 alias W=' | wc -l '
 alias S=' | sort '
 
-function handle-multi-arguments(){
-	if [ ! "$#" -gt 1 ] ; then
-	  echo "Usage: $0 file1 file2 ..." >&2
-	  return -1
+function handle-multi-arguments() {
+	if [ ! "$#" -gt 1 ]; then
+		echo "Usage: $0 file1 file2 ..." >&2
+		return -1
 	fi
 	for file in $@; do
-		if [ -f $file ] ; then
+		if [ -f $file ]; then
 			echo -n $file
 		fi
 	done
@@ -66,7 +62,6 @@ function handle-multi-arguments(){
 }
 
 # macOS specific
-#
 # Check if running on macOS, otherwise stop here
 [[ ! "x$SYSTEM" == "xDarwin" ]] && return
 
@@ -85,7 +80,6 @@ export PATH=$PATH:/usr/local/MacGPG2/bin
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$HOME/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 # scutil
-#
 alias sys.get.computername='scutil --get ComputerName'
 alias sys.get.localhostname='scutil --get LocalHostName'
 alias sys.get.hostname='scutil --get HostName'
@@ -93,13 +87,11 @@ alias sys.get.dns='scutil --dns'
 alias sys.get.proxy='scutil --proxy'
 alias sys.get.network.interface='scutil --nwi'
 
-#
 alias sys.uti.file='mdls -name kMDItemContentTypeTree '
 
 alias lsregister='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister'
-#
+
 # OS X's launchctl
-#
 alias launch.list='launchctl list '
 alias launch.load='launchctl load '
 alias launch.unload='launchctl unload '
@@ -107,12 +99,10 @@ alias launch.getenv='launchctl getenv '
 alias launch.start='launchctl start '
 alias launch.stop='launchctl stop '
 
-#
 # Spotlight / Meta-data indexing (MDS)
 #
 # https://apple.stackexchange.com/q/87090/7647
 # https://apple.stackexchange.com/q/63178/7647
-#
 alias spotlight.exclusion.show='sudo defaults read /.Spotlight-V100/VolumeConfiguration.plist Exclusions'
 alias spotlight.exclusion.add='sudo defaults write /.Spotlight-V100/VolumeConfiguration.plist Exclusions -array-add '
 
@@ -124,4 +114,3 @@ alias sys.pkg.list='pkgutil --pkgs'
 
 # show CPU info
 alias sys.cpu='sysctl -n machdep.cpu.brand_string'
-
