@@ -19,35 +19,6 @@ Linux)
 	;;
 esac
 
-alias l='ll'
-alias ll='ls -lFh'       # long (-l), types classify (-F),human readable (-h)
-alias ls.all='ls -lAFh'  # long list, show almost all
-alias ls.dot='ls -ld .*' # show dot files, list dirs non-recursively (-d)
-alias ls.id='ls -nFh'    # show numeric FID and GID (-n)
-alias ls.sort.time='ls -tlFh'
-alias ls.sort.size='ls -SlFh'
-alias ls.recursive='ls -R'
-
-# diff
-alias diff='colordiff'
-
-# change dir
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../../..'
-
-alias df='df -h'
-
-# Pipe Aliases
-alias grep='grep -I -n -H --color=auto '
-alias egrep='egrep -I -n -H h --color=auto '
-alias L=' | less '
-alias G=' | egrep -I -n -H --color=auto '
-alias T=' | tail '
-alias H=' | head '
-alias W=' | wc -l '
-alias S=' | sort '
-
 function handle-multi-arguments() {
 	if [ ! "$#" -gt 1 ]; then
 		echo "Usage: $0 file1 file2 ..." >&2
@@ -61,7 +32,6 @@ function handle-multi-arguments() {
 	echo 'Done!'
 }
 
-# macOS specific
 # Check if running on macOS, otherwise stop here
 [[ ! "x$SYSTEM" == "xDarwin" ]] && return
 
@@ -78,6 +48,9 @@ export PATH=$PATH:/usr/local/MacGPG2/bin
 # GNU Core Utils
 # brew info coreutils
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$HOME/usr/local/opt/coreutils/libexec/gnubin:$PATH
+
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # scutil
 alias sys.get.computername='scutil --get ComputerName'
@@ -99,6 +72,11 @@ alias launch.getenv='launchctl getenv '
 alias launch.start='launchctl start '
 alias launch.stop='launchctl stop '
 
+alias sys.pkg.list='pkgutil --pkgs'
+
+# show CPU info
+alias sys.cpu='sysctl -n machdep.cpu.brand_string'
+
 # Spotlight / Meta-data indexing (MDS)
 # https://apple.stackexchange.com/q/87090/7647
 # https://apple.stackexchange.com/q/63178/7647
@@ -108,8 +86,3 @@ alias spotlight.exclusion.add='sudo defaults write /.Spotlight-V100/VolumeConfig
 alias spotlight.indexing.stop='sudo launchctl stop com.apple.metadata.mds'
 alias spotlight.indexing.start='sudo launchctl start com.apple.metadata.md'
 alias spotlight.indexing.restart='spotlight.indexing.stop && spotlight.indexing.start'
-
-alias sys.pkg.list='pkgutil --pkgs'
-
-# show CPU info
-alias sys.cpu='sysctl -n machdep.cpu.brand_string'
