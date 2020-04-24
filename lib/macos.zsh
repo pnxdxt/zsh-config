@@ -100,7 +100,6 @@ alias launch.start='launchctl start '
 alias launch.stop='launchctl stop '
 
 # Spotlight / Meta-data indexing (MDS)
-#
 # https://apple.stackexchange.com/q/87090/7647
 # https://apple.stackexchange.com/q/63178/7647
 alias spotlight.exclusion.show='sudo defaults read /.Spotlight-V100/VolumeConfiguration.plist Exclusions'
