@@ -40,6 +40,13 @@ bindkey "^ " magic-space           # control-space to bypass completion
 bindkey -M isearch " " magic-space # normal space during searches
 
 #-----------------------------------------------------
+# https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh
+#
+# brew install fzf
+#
+test -d ${ZDOTDIR:-$HOME}/.fzf && source ${ZDOTDIR:-$HOME}/.fzf.zsh
+
+#-----------------------------------------------------
 # https://github.com/zsh-users/zsh-autosuggestions
 #
 # change ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE in case the color contrast is bad
@@ -53,13 +60,6 @@ bindkey -M isearch " " magic-space # normal space during searches
 #autoload -U compinit && compinit
 # Performance
 # https://gist.github.com/ctechols/ca1035271ad134841284
-
-#-----------------------------------------------------
-# https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh
-#
-# brew install fzf
-#
-test -d ${ZDOTDIR:-$HOME}/.fzf && source ${ZDOTDIR:-$HOME}/.fzf.zsh
 
 #-----------------------------------------------------
 # https://github.com/nvbn/thefuck
