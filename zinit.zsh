@@ -30,18 +30,10 @@ zinit light junegunn/fzf
 zplugin ice pick"async.zsh" src"pure.zsh" lucid
 zplugin light sindresorhus/pure
 
-# Comment above and uncomment this to use powerlevel10k
-#zinit ice depth=1
-#zinit light romkatv/powerlevel10k
-
 zinit ice as"completion" lucid
+
 # zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 # zinit as'completion' for OMZ::plugins/docker/_docker
-
-# https://github.com/laggardkernel/git-ignore
-zinit ice pick'init.zsh' blockf
-zinit light laggardkernel/git-ignore
-alias gi="git-ignore"
 
 # OMZ Plugins
 # https://github.com/zdharma/zinit/blob/master/doc/INTRODUCTION.adoc#oh-my-zsh-prezto
