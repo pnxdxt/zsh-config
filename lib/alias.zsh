@@ -47,6 +47,9 @@ alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resourc
 
 alias week='date +%V'          # Get week number
 alias cdate='date "+%d—%m—%Y"' # Get date
+alias timer='date1=`date +%s`; while true; do 
+   echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+done'
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
 alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"
