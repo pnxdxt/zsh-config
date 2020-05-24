@@ -62,3 +62,5 @@ alias path='echo -e ${PATH//:/\\n}'
 alias dnscacheflush="sudo killall -HUP mDNSResponder"
 alias dnscf="sudo killall -HUP mDNSResponder"
 alias dcf="sudo killall -HUP mDNSResponder"
+
+alias $=" "
