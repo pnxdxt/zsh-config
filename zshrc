@@ -47,3 +47,5 @@ eval "$(direnv hook zsh)"
 
 # Private script here
 [ -f ~/.private.zsh ] && source ${HOME}/.private.zsh
+
+source ~/alias-tips/alias-tips.plugin.zsh
