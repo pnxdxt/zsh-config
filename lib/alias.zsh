@@ -34,6 +34,7 @@ alias ....='cd ../../../..'
 alias ssh="ssh -A" # Remote
 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com' # what is my ip?
+alias speedtest='speed-test -v'
 
 # Funny commit
 alias yolo="git commit -am '$(curl -s http://whatthecommit.com/index.txt)'"
