@@ -12,6 +12,9 @@ zinit light zsh-users/zsh-completions
 zinit ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
 zinit light zdharma/fast-syntax-highlighting
 
+zinit ice wait"0" lucid
+zinit light lukechilds/zsh-better-npm-completion
+
 zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
 zinit light direnv/direnv
 
