@@ -9,7 +9,7 @@ zinit ice wait"0" lucid
 zinit light zsh-users/zsh-completions
 
 #zinit light zsh-users/zsh-syntax-highlighting
-zinit ice wait"5" atinit"zpcompinit; zpcdreplay" lucid
+zinit ice wait"3" atinit"zpcompinit; zpcdreplay" lucid
 zinit light zdharma/fast-syntax-highlighting
 
 zinit ice wait"0" lucid
