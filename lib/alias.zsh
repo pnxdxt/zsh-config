@@ -11,6 +11,8 @@ if which nvim >/dev/null 2>&1; then
   alias vi=nvim
 fi
 
+alias lsa='ls -a'
+alias lsd='ls -d .*'
 alias l='ll'
 alias ll='ls -lFh'       # long (-l), types classify (-F),human readable (-h)
 alias ls.all='ls -lAFh'  # long list, show almost all
@@ -19,6 +21,17 @@ alias ls.id='ls -nFh'    # show numeric FID and GID (-n)
 alias ls.sort.time='ls -tlFh'
 alias ls.sort.size='ls -SlFh'
 alias ls.recursive='ls -R'
+
+alias ni='npm install'
+alias nid='npm install --save-dev'
+alias nig='npm install --global'
+alias nt='npm test'
+alias nit='npm install && npm test'
+alias nk='npm link'
+alias nr='npm run'
+alias ns='npm start'
+alias nf='npm cache clean && rm -rf node_modules && npm install'
+alias nlg='npm list --global --depth=0'
 
 alias g="git"
 alias o="open ."
@@ -34,7 +47,7 @@ alias ....='cd ../../../..'
 alias ssh="ssh -A" # Remote
 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com' # what is my ip?
-alias speedtest='speed-test -v'
+alias speedtest='fast -u --single-line && speed-test -v'
 
 # Funny commit
 alias yolo="git commit -am '$(curl -s http://whatthecommit.com/index.txt)'"
@@ -53,7 +66,7 @@ alias timer='date1=`date +%s`; while true; do
 done'
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
-alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"
+alias brew_update="brew -v update; brew upgrade --force-bottle; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"
 alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-document'
 
 # Echo path
