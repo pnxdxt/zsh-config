@@ -42,6 +42,9 @@ function handle-multi-arguments() {
 # /etc/paths.d/40-XQuartz
 export PATH=$PATH:/opt/X11/bin
 
+export PATH=$PATH:/sbin
+export PATH=$PATH:/usr/sbin
+
 # /etc/paths.d/MacGPG2
 export PATH=$PATH:/usr/local/MacGPG2/bin
 
