@@ -45,6 +45,7 @@ alias ...='cd ../..'
 alias ....='cd ../../../..'
 
 alias ssh="ssh -A" # Remote
+alias ssh.vizapp="ssh ubuntu@51.210.180.245"
 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com' # what is my ip?
 alias speedtest='fast -u --single-line && speed-test -v'
