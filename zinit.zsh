@@ -9,7 +9,7 @@ zinit ice wait"0" lucid
 zinit light zsh-users/zsh-completions
 
 #zinit light zsh-users/zsh-syntax-highlighting
-zinit ice wait"3" atinit"zpcompinit; zpcdreplay" lucid
+zinit ice wait"1" atinit"zpcompinit; zpcdreplay" lucid
 zinit light zdharma/fast-syntax-highlighting
 
 zinit ice wait"0" lucid
@@ -32,6 +32,8 @@ zinit light junegunn/fzf
 # Load the pure theme, with zsh-async library that's bundled with it
 zplugin ice pick"async.zsh" src"pure.zsh" lucid
 zplugin light sindresorhus/pure
+
+#zplugin light reobin/typewritten
 
 zinit ice as"completion" lucid
 
