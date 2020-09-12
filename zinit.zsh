@@ -36,6 +36,9 @@ zinit light junegunn/fzf
 #zplugin light reobin/typewritten
 zinit light denysdovhan/spaceship-prompt
 
+zinit ice wait'1' lucid
+zinit light laggardkernel/zsh-thefuck
+
 zinit ice as"completion" lucid
 
 # zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
