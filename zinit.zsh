@@ -30,10 +30,11 @@ zinit light junegunn/fzf
 
 #zinit light mafredri/zsh-async
 # Load the pure theme, with zsh-async library that's bundled with it
-zplugin ice pick"async.zsh" src"pure.zsh" lucid
-zplugin light sindresorhus/pure
+#zplugin ice pick"async.zsh" src"pure.zsh" lucid
+#zplugin light sindresorhus/pure
 
 #zplugin light reobin/typewritten
+zinit light denysdovhan/spaceship-prompt
 
 zinit ice as"completion" lucid
 
