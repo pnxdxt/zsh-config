@@ -12,8 +12,12 @@ zinit light zsh-users/zsh-completions
 zinit ice wait"1" atinit"zpcompinit; zpcdreplay" lucid
 zinit light zdharma/fast-syntax-highlighting
 
-zinit ice wait"0" lucid
-zinit light djui/alias-tips
+#zinit ice wait"0" lucid
+#zinit light djui/alias-tips
+
+zinit ice from'gh-r' as'program'
+zinit light sei40kr/fast-alias-tips-bin
+zinit light sei40kr/zsh-fast-alias-tips
 
 zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
 zinit light direnv/direnv
