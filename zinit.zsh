@@ -1,23 +1,19 @@
 #!/usr/bin/env zsh
 
-# https://github.com/zdharma/zinit/wiki
-# https://github.com/zdharma/zinit/blob/master/GALLERY.md
-zinit ice wait"0" atload"_zsh_autosuggest_start" lucid
-zinit light zsh-users/zsh-autosuggestions
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
 zinit ice wait"0" lucid
-zinit light zsh-users/zsh-completions
+zinit light djui/alias-tips
 
-#zinit light zsh-users/zsh-syntax-highlighting
-zinit ice wait"1" atinit"zpcompinit; zpcdreplay" lucid
-zinit light zdharma/fast-syntax-highlighting
-
-#zinit ice wait"0" lucid
-#zinit light djui/alias-tips
-
-zinit ice from'gh-r' as'program'
-zinit light sei40kr/fast-alias-tips-bin
-zinit light sei40kr/zsh-fast-alias-tips
+#zinit ice from'gh-r' as'program'
+#zinit light sei40kr/fast-alias-tips-bin
+#zinit light sei40kr/zsh-fast-alias-tips
 
 zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
 zinit light direnv/direnv
