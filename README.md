@@ -8,7 +8,7 @@ This configuration is for my macOS workstation and therefore contain some macOS-
 # get to the home folder
 $ cd
 # pull the git repos
-$ git clone https://github.com/pnodet/zsh-config.git ~/.zsh-config
+$ git clone https://github.com/pnxdxt/zsh-config.git ~/.zsh-config
 # then link the startup files
 $ zsh ~/.zsh-config/bootstrap.sh
 ```
