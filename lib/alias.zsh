@@ -84,4 +84,4 @@ alias dcf="sudo killall -HUP mDNSResponder"
 
 alias $=" "
 
-alias generate-password="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n $1 | tr -d '\n'; echo"
+alias generate-password="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n $1 |tr -d '\n'; echo"
