@@ -11,6 +11,13 @@ if which nvim >/dev/null 2>&1; then
   alias vi=nvim
 fi
 
+# change dir
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../..'
+
+alias ls='exa' # A better ls https://the.exa.website/
+
 alias lsa='ls -a'
 alias lsd='ls -d .*'
 alias l='ll'
@@ -39,16 +46,14 @@ alias o="open ."
 # diff
 alias diff='colordiff'
 
-# change dir
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../../..'
-
 alias ssh="ssh -A" # Remote
 alias ssh.vizapp="ssh ubuntu@51.210.180.245"
 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com' # what is my ip?
 alias speedtest='fast -u --single-line && speed-test -v'
+alias meteo="curl -4 http://wttr.in/Paris"
+alias week='date +%V'          # Get week number
+alias cdate='date "+%d—%m—%Y"' # Get date
 
 # Funny commit
 alias yolo="git commit -am '$(curl -s http://whatthecommit.com/index.txt)'"
@@ -60,8 +65,6 @@ alias killchrome="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # Lock the screen (when going AFK)
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
-alias week='date +%V'          # Get week number
-alias cdate='date "+%d—%m—%Y"' # Get date
 alias timer='date1=`date +%s`; while true; do 
    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
 done'
@@ -72,6 +75,7 @@ alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo 
 
 # Echo path
 alias path='echo -e ${PATH//:/\\n}'
+alias reload=". ~/.zshrc"
 
 # DNS cache Flush
 alias dnscacheflush="sudo killall -HUP mDNSResponder"
@@ -80,6 +84,4 @@ alias dcf="sudo killall -HUP mDNSResponder"
 
 alias $=" "
 
-generate-password() {
-  strings /dev/urandom | grep -o '[[:alnum:]]' | head -n $1 | tr -d '\n'; echo
-}
+alias generate-password="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n $1 | tr -d '\n'; echo"
