@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-zinit snippet https://raw.githubusercontent.com/kyoz/purify/master/zsh/purify.zsh-theme
-
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma/fast-syntax-highlighting \
