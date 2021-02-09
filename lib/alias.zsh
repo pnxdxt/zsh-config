@@ -84,4 +84,4 @@ alias dcf="sudo killall -HUP mDNSResponder"
 
 alias $=" "
 
-alias generate-password="openssl rand -base64 18"
+alias generate-password="repeat 10 {openssl rand -base64 18}"
