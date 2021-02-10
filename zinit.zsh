@@ -36,6 +36,11 @@ zinit light junegunn/fzf
 #zplugin light reobin/typewritten
 zinit light denysdovhan/spaceship-prompt
 
+export NVM_SYMLINK_CURRENT="true" # nvm use should make a symlink
+export NVM_DIR="$HOME/.nvm"
+export NVM_LAZY_LOAD=true
+zinit light lukechilds/zsh-nvm # This load nvm on first use of node, npm, etc
+
 #zinit ice wait'1' lucid
 #zinit light laggardkernel/zsh-thefuck
 
