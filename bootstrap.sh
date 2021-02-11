@@ -17,6 +17,8 @@ function zsh_bootstrap() {
     ln -sf ${ZSHCONFIG}/zshenv ${HOME}/.zshenv
     ln -sf ${ZSHCONFIG}/zshrc ${HOME}/.zshrc
     echo "Done!"
+    . ~/.zshrc
+    sleep 25
 }
 
 function zsh_cleanup() {
