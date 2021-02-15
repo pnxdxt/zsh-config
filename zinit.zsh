@@ -1,5 +1,14 @@
 #!/usr/bin/env zsh
 
+# FUNCTIONS TO MAKE CONFIGURATION LESS VERBOSE
+
+turbo0()   { zinit ice wait"0a" lucid             "${@}"; }
+turbo1()   { zinit ice wait"0b" lucid             "${@}"; }
+turbo2()   { zinit ice wait"0c" lucid             "${@}"; }
+zcommand() { zinit ice wait"0b" lucid as"command" "${@}"; }
+zload()    { zinit load                           "${@}"; }
+zsnippet() { zinit snippet                        "${@}"; }
+
 zinit ice wait"0a" atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" atload"_zsh_highlight" lucid
 zinit light zdharma/fast-syntax-highlighting
 
@@ -14,9 +23,6 @@ zmodload zdharma/zplugin &>/dev/null
 zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
 zinit load starship/starship
 
-export NVM_SYMLINK_CURRENT="true" # nvm use should make a symlink
-export NVM_DIR="$HOME/.nvm"
-export NVM_LAZY_LOAD=true
 zinit light lukechilds/zsh-nvm # This load nvm on first use of node, npm, etc
 
 zinit ice wait blockf lucid atpull'zinit creinstall -q .'
