@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
-zplugin ice wait"0a" atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" atload"_zsh_highlight" lucid
-zplugin light zdharma/fast-syntax-highlighting
+zinit ice wait"0a" atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" atload"_zsh_highlight" lucid
+zinit light zdharma/fast-syntax-highlighting
 
 zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
 zinit light direnv/direnv
@@ -11,7 +11,7 @@ module_path+=( "${HOME}/.zinit/bin/zmodules/Src" )
 zmodload zdharma/zplugin &>/dev/null
 
 # Prompt : https://github.com/starship/starship
-zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh"'
+zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
 zinit load starship/starship
 
 export NVM_SYMLINK_CURRENT="true" # nvm use should make a symlink
