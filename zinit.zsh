@@ -11,8 +11,8 @@ module_path+=( "${HOME}/.zinit/bin/zmodules/Src" )
 zmodload zdharma/zplugin &>/dev/null
 
 # Prompt : https://github.com/starship/starship
-zinit ice from"gh-r" as"command" atload'eval "$(startship init zsh"'
-zinit load startship/startship
+zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh"'
+zinit load starship/starship
 
 export NVM_SYMLINK_CURRENT="true" # nvm use should make a symlink
 export NVM_DIR="$HOME/.nvm"
