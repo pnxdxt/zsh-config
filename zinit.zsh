@@ -1,75 +1,39 @@
 #!/usr/bin/env zsh
 
-zinit wait lucid for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma/fast-syntax-highlighting \
- blockf \
-    zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-
-zinit ice wait"0" lucid
-zinit light djui/alias-tips
-
-#zinit ice from'gh-r' as'program'
-#zinit light sei40kr/fast-alias-tips-bin
-#zinit light sei40kr/zsh-fast-alias-tips
+zplugin ice wait"0a" atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" atload"_zsh_highlight" lucid
+zplugin light zdharma/fast-syntax-highlighting
 
 zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
 zinit light direnv/direnv
 
-#zinit ice wait"0" lucid
-# must load it otherwise bindkeys won't work
-zinit light zsh-users/zsh-history-substring-search
+# A binary Zsh module which transparently and automatically compiles sourced scripts
+module_path+=( "${HOME}/.zinit/bin/zmodules/Src" )
+zmodload zdharma/zplugin &>/dev/null
 
-zinit ice wait"0" lucid
-zinit load zdharma/history-search-multi-word
-
-zinit ice wait"0" lucid
-zinit light junegunn/fzf
-
-#zinit light mafredri/zsh-async
-# Load the pure theme, with zsh-async library that's bundled with it
-#zplugin ice pick"async.zsh" src"pure.zsh" lucid
-#zplugin light sindresorhus/pure
-
-#zplugin light reobin/typewritten
-zinit light denysdovhan/spaceship-prompt
+# Prompt : https://github.com/starship/starship
+zinit ice from"gh-r" as"command" atload'eval "$(startship init zsh"'
+zinit load startship/startship
 
 export NVM_SYMLINK_CURRENT="true" # nvm use should make a symlink
 export NVM_DIR="$HOME/.nvm"
 export NVM_LAZY_LOAD=true
 zinit light lukechilds/zsh-nvm # This load nvm on first use of node, npm, etc
 
-#zinit ice wait'1' lucid
-#zinit light laggardkernel/zsh-thefuck
+zinit ice wait blockf lucid atpull'zinit creinstall -q .'
+zinit load zsh-users/zsh-completions
 
-zinit ice as"completion" lucid
+zinit ice wait blockf lucid atpull'zinit creinstall -q .'
+zinit load zsh-users/zsh-autosuggestions
 
-# zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-# zinit as'completion' for OMZ::plugins/docker/_docker
+zinit ice wait"1" lucid
+zinit load zdharma/history-search-multi-word
 
-# OMZ Plugins
-# https://github.com/zdharma/zinit/blob/master/doc/INTRODUCTION.adoc#oh-my-zsh-prezto
-# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
-#
+zinit ice wait"1" lucid
+zinit light junegunn/fzf
+
+zinit ice wait"2" lucid
+zinit light djui/alias-tips
+
 #zinit ice wait"0" lucid
-#zinit snippet OMZ::plugins/python/python.plugin.zsh
-#zinit ice wait"0" lucid
-#zinit snippet OMZ::plugins/ruby/ruby.plugin.zsh
-#zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
-#zinit snippet OMZ::plugins/terraform/terraform.plugin.zsh
-#zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
-#zinit snippet OMZ::plugins/ansible/ansible.plugin.zsh
-#zinit snippet OMZ::plugins/nvm/nvm.plugin.zsh
-#zinit snippet OMZ::plugins/vagrant/vagrant.plugin.zsh
-#zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
-
-# NOTE: AWS completion is already in place with pyenv installation
-# zinit snippet OMZ::plugins/aws/aws.plugin.zsh
-
-#
-# Prezto Plugins
-# https://github.com/sorin-ionescu/prezto/blob/master/modules
-#
-# zinit snippet PZT::modules/python/init.zsh
+# must load it otherwise bindkeys won't work
+zinit light zsh-users/zsh-history-substring-search

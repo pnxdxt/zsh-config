@@ -16,7 +16,7 @@ function zsh_bootstrap() {
     ln -sf ${ZSHCONFIG}/zprofile ${HOME}/.zprofile
     ln -sf ${ZSHCONFIG}/zshenv ${HOME}/.zshenv
     ln -sf ${ZSHCONFIG}/zshrc ${HOME}/.zshrc
-    echo "Done!"
+    echo "Done! Donwloading plugins, this may take a minute"
     . ~/.zshrc
     sleep 25
 }
