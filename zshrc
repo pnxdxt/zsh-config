@@ -45,5 +45,7 @@ esac
 # https://github.com/zdharma/zplugin/wiki/Direnv-explanation
 eval "$(direnv hook zsh)"
 
+eval "$(fnm env)"
+
 # Private script here
 [ -f ~/.private.zsh ] && source ${HOME}/.private.zsh

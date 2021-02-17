@@ -30,17 +30,9 @@ source "$HOME/.zsh-config/zinit.zsh"
 export PURE_PROMPT_SYMBOL='❯'
 export PURE_CMD_MAX_EXEC_TIME=4
 
-# https://typewritten.dev/#/prompt_customization
-
-export TYPEWRITTEN_PROMPT_LAYOUT="pure"
-export TYPEWRITTEN_CURSOR="beam"
-export TYPEWRITTEN_COLOR_MAPPINGS="primary:#9580FF;secondary:#8AFF80;accent:#FFFF80;info_negative:#FF80BF;info_positive:#8AFF80;info_neutral_1:#FF9580;info_neutral_2:#FFFF80;info_special:#80FFEA"
-
-
 # https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md
 export SPACESHIP_VI_MODE_SHOW=false
 export SPACESHIP_BATTERY_SHOW=charged
-
 
 #-----------------------------------------------------
 # Setting autoloaded functions
