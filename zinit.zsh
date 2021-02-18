@@ -16,10 +16,6 @@ zinit light direnv/direnv
 zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
 zinit load starship/starship
 
-#zinit ice wait"0" lucid
-# must load it otherwise bindkeys won't work
-zinit light zsh-users/zsh-history-substring-search
-
 # A binary Zsh module which transparently and automatically compiles sourced scripts
 module_path+=( "${HOME}/.zinit/bin/zmodules/Src" )
 zmodload zdharma/zplugin &>/dev/null
@@ -37,6 +33,9 @@ zinit ice wait"1" lucid
 zinit load zdharma/history-search-multi-word
 
 zinit ice wait"1" lucid
+zinit light zsh-users/zsh-history-substring-search
+
+zinit ice wait"2" lucid
 zinit light junegunn/fzf
 
 zinit ice wait"2" lucid
