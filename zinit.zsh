@@ -10,7 +10,7 @@ zload()    { zinit load                           "${@}"; }
 zsnippet() { zinit snippet                        "${@}"; }
 
 zinit ice wait"0a" atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" atload"_zsh_highlight" lucid
-zinit light zdharma/fast-syntax-highlighting
+zinit load zsh-users/zsh-completions
 
 zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
 zinit light direnv/direnv
@@ -23,10 +23,8 @@ zmodload zdharma/zplugin &>/dev/null
 zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
 zinit load starship/starship
 
-zinit light lukechilds/zsh-nvm # This load nvm on first use of node, npm, etc
-
 zinit ice wait blockf lucid atpull'zinit creinstall -q .'
-zinit load zsh-users/zsh-completions
+zinit light zdharma/fast-syntax-highlighting
 
 zinit ice wait blockf lucid atpull'zinit creinstall -q .'
 zinit load zsh-users/zsh-autosuggestions
@@ -39,6 +37,9 @@ zinit light junegunn/fzf
 
 zinit ice wait"2" lucid
 zinit light djui/alias-tips
+
+zinit ice wait"2" lucid
+zinit light Aloxaf/fzf-tab
 
 #zinit ice wait"0" lucid
 # must load it otherwise bindkeys won't work
