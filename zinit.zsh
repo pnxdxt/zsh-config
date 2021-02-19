@@ -48,5 +48,7 @@ turbo2; zlight djui/alias-tips
 
 # REMOVE TEMPORARY FUNCTIONS
 unset -f turbo0
+unset -f turbo1
+unset -f turbo2
 unset -f zload
 unset -f zlight
