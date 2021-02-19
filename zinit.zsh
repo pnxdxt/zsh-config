@@ -13,7 +13,7 @@ zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atc
 zlight direnv/direnv
 
 # Prompt : https://github.com/starship/starship
-zcommand from"gh-r" atload'eval "$(starship init zsh)"'
+zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
 zload starship/starship
 
 # Don't bind these keys until ready
