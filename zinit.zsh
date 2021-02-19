@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 # FUNCTIONS TO MAKE CONFIGURATION LESS VERBOSE
-
 turbo0()   { zinit ice wait"0a" lucid             "${@}"; }
 turbo1()   { zinit ice wait"0b" lucid             "${@}"; }
 turbo2()   { zinit ice wait"0c" lucid             "${@}"; }
@@ -16,24 +15,24 @@ zinit light direnv/direnv
 zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
 zinit load starship/starship
 
-# A binary Zsh module which transparently and automatically compiles sourced scripts
-module_path+=( "${HOME}/.zinit/bin/zmodules/Src" )
-zmodload zdharma/zplugin &>/dev/null
+# History substring searching
+zinit ice wait lucid atload'__bind_history_keys'
+zinit light zsh-users/zsh-history-substring-search
 
-zinit ice wait"0a" atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" atload"_zsh_highlight" lucid
-zinit load zsh-users/zsh-completions
+# autosuggestions, trigger precmd hook upon load
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
 
-zinit ice wait blockf lucid atpull'zinit creinstall -q .'
+# Tab completions
+zinit ice wait lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
+# Syntax highlighting
+zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
 zinit light zdharma/fast-syntax-highlighting
-
-zinit ice wait blockf lucid atpull'zinit creinstall -q .'
-zinit load zsh-users/zsh-autosuggestions
 
 zinit ice wait"1" lucid
 zinit load zdharma/history-search-multi-word
-
-zinit ice wait"1" lucid
-zinit light zsh-users/zsh-history-substring-search
 
 zinit ice wait"2" lucid
 zinit light junegunn/fzf
