@@ -6,14 +6,15 @@ turbo1()   { zinit ice wait"0b" lucid             "${@}"; }
 turbo2()   { zinit ice wait"0c" lucid             "${@}"; }
 zcommand() { zinit ice wait"0b" lucid as"command" "${@}"; }
 zload()    { zinit load                           "${@}"; }
+zlight()   { zinit light                          "${@}"; }
 zsnippet() { zinit snippet                        "${@}"; }
 
 zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
-zinit light direnv/direnv
+zlight direnv/direnv
 
 # Prompt : https://github.com/starship/starship
-zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
-zinit load starship/starship
+zcommand from"gh-r" atload'eval "$(starship init zsh)"'
+zload starship/starship
 
 # Don't bind these keys until ready
 bindkey -r '^[[A'
@@ -24,26 +25,28 @@ function __bind_history_keys() {
 }
 
 # History substring searching
-zinit ice wait lucid atload'__bind_history_keys'
-zinit light zsh-users/zsh-history-substring-search
+turbo0 atload'__bind_history_keys'
+zlight zsh-users/zsh-history-substring-search
 
 # autosuggestions, trigger precmd hook upon load
-zinit ice wait lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
+turbo0 atload'_zsh_autosuggest_start'
+zlight zsh-users/zsh-autosuggestions
 
 # Tab completions
-zinit ice wait lucid blockf atpull'zinit creinstall -q .'
-zinit light zsh-users/zsh-completions
+turbo0 blockf atpull'zinit creinstall -q .'
+zlight zsh-users/zsh-completions
 
 # Syntax highlighting
-zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
-zinit light zdharma/fast-syntax-highlighting
+turbo0 atinit'zpcompinit; zpcdreplay'
+zlight zdharma/fast-syntax-highlighting
 
-zinit ice wait"1" lucid
-zinit load zdharma/history-search-multi-word
+turbo1; zload zdharma/history-search-multi-word
 
-zinit ice wait"2" lucid
-zinit light junegunn/fzf
+turbo2; zlight junegunn/fzf
 
-zinit ice wait"2" lucid
-zinit light djui/alias-tips
+turbo2; zlight djui/alias-tips
+
+# REMOVE TEMPORARY FUNCTIONS
+unset -f turbo0
+unset -f zload
+unset -f zlight
