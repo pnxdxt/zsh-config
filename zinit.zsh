@@ -15,6 +15,14 @@ zinit light direnv/direnv
 zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
 zinit load starship/starship
 
+# Don't bind these keys until ready
+bindkey -r '^[[A'
+bindkey -r '^[[B'
+function __bind_history_keys() {
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+}
+
 # History substring searching
 zinit ice wait lucid atload'__bind_history_keys'
 zinit light zsh-users/zsh-history-substring-search
