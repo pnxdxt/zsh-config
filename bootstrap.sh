@@ -5,7 +5,6 @@
 ZSHCONFIG=${HOME}/.zsh-config
 
 function zsh_bootstrap() {
-
     # need zinit
     echo "Cloning zinit"
     mkdir -p ~/.zinit
@@ -18,7 +17,7 @@ function zsh_bootstrap() {
     ln -sf ${ZSHCONFIG}/zshrc ${HOME}/.zshrc
     echo "Done! Donwloading plugins, this may take a minute"
     . ~/.zshrc
-    sleep 25
+    sleep 8
 }
 
 function zsh_cleanup() {
@@ -27,4 +26,4 @@ function zsh_cleanup() {
     echo "Done!"
 }
 
-zsh_bootstrap
+zsh_cleanup && zsh_bootstrap

@@ -16,7 +16,8 @@ alias $=" "
 # change dir
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ....='cd ../../../..'
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 alias ls='exa' # A better ls https://the.exa.website/
 
@@ -43,7 +44,9 @@ alias nf='npm cache clean && rm -rf node_modules && npm install'
 alias nlg='npm list --global --depth=0'
 
 alias g="git"
-alias o="open ."
+alias o="open"
+alias oo="open ."
+alias co="code ."
 
 # diff
 alias diff='colordiff'
