@@ -26,13 +26,8 @@ source "$HOME/.zinit/bin/zinit.zsh"
 source "$HOME/.zsh-config/zinit.zsh"
 #-----------------------------------------------------
 
-# https://github.com/sindresorhus/pure#options
-export PURE_PROMPT_SYMBOL='❯'
-export PURE_CMD_MAX_EXEC_TIME=4
-
-# https://github.com/denysdovhan/spaceship-prompt/blob/master/docs/Options.md
-export SPACESHIP_VI_MODE_SHOW=false
-export SPACESHIP_BATTERY_SHOW=charged
+# Starship prompt
+export STARSHIP_CONFIG=~/.config/starship.toml
 
 #-----------------------------------------------------
 # Setting autoloaded functions
