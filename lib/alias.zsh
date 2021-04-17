@@ -11,6 +11,10 @@ if which nvim >/dev/null 2>&1; then
   alias vi=nvim
 fi
 
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Undollar
 alias $=" "
 
 # change dir
