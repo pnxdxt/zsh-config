@@ -4,7 +4,7 @@ export PROJECTS_DIR=$HOME/Projects
 
 # GRC colorizes nifty unix tools all over the place
 if which gls >/dev/null 2>&1; then
-  source $(brew --prefix)/etc/grc.bashrc
+  source $(brew --prefix)/etc/grc.sh
 fi
 
 if which nvim >/dev/null 2>&1; then
