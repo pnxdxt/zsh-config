@@ -7,8 +7,9 @@
 #
 #zmodload zsh/zprof
 
+GPG_TTY=$(tty)
+export GPG_TTY
 export SCRIPTS=${HOME}/scripts
-
 export ZSHCONFIG=${ZDOTDIR:-$HOME}/.zsh-config
 
 ZSH_INIT=${ZSHCONFIG}/_init.sh
