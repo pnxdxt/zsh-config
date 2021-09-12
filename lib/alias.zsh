@@ -43,11 +43,14 @@ alias nt='npm test'
 alias nit='npm install && npm test'
 alias nk='npm link'
 alias nr='npm run'
+alias nrf='npm run format'
 alias ns='npm start'
 alias nf='npm cache clean && rm -rf node_modules && npm install'
 alias nlg='npm list --global --depth=0'
 
 alias g="git"
+alias gitstatusall=`find . -name .git -execdir bash -c 'echo -en "\033[1;31m"repo: "\033[1;34m"; basename "`git rev-parse --show-toplevel`"; git status -s' \;`
+alias gpgfix="export GPG_TTY=$(tty)"
 alias o="open"
 alias oo="open ."
 alias co="code ."
@@ -56,10 +59,9 @@ alias co="code ."
 alias diff='colordiff'
 
 alias ssh="ssh -A" # Remote
-alias ssh.vizapp="ssh ubuntu@51.210.180.245"
 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com' # what is my ip?
-alias speedtest='fast -u --single-line && speed-test -v'
+alias speedtest='fast -u --single-line'
 alias meteo="curl -4 http://wttr.in/Paris"
 alias week='date +%V'          # Get week number
 alias cdate='date "+%d—%m—%Y"' # Get date
@@ -80,5 +82,5 @@ alias generate-password="repeat 10 {openssl rand -base64 18}"
 alias killchrome="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
-alias brew_update="brew -v update; brew upgrade --force-bottle; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"
+alias brew_update="brew -v update; brew upgrade --force-bottle; brew cleanup; brew doctor; npm-check -g -u"
 alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-document'
