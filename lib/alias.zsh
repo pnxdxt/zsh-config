@@ -49,7 +49,6 @@ alias nf='npm cache clean && rm -rf node_modules && npm install'
 alias nlg='npm list --global --depth=0'
 
 alias g="git"
-alias gitstatusall=`find . -name .git -execdir bash -c 'echo -en "\033[1;31m"repo: "\033[1;34m"; basename "`git rev-parse --show-toplevel`"; git status -s' \;`
 alias gpgfix="export GPG_TTY=$(tty)"
 alias o="open"
 alias oo="open ."
