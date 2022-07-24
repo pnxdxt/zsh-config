@@ -42,10 +42,6 @@ esac
 # see zinit.zsh with Turbo Mode
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# https://direnv.net/
-# https://github.com/zdharma/zplugin/wiki/Direnv-explanation
-eval "$(direnv hook zsh)"
-
 eval "$(fnm env)"
 
 # Private script here

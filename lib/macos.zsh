@@ -44,6 +44,8 @@ export PATH=$PATH:/opt/X11/bin
 
 export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/sbin
+export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/opt/homebrew/sbin
 
 # /etc/paths.d/MacGPG2
 export PATH=$PATH:/usr/local/MacGPG2/bin

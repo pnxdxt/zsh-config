@@ -16,8 +16,6 @@ function zsh_bootstrap() {
     ln -sf ${ZSHCONFIG}/zshenv ${HOME}/.zshenv
     ln -sf ${ZSHCONFIG}/zshrc ${HOME}/.zshrc
     echo "Done! Donwloading plugins, this may take a minute"
-    . ~/.zshrc
-    sleep 8
 }
 
 function zsh_cleanup() {

@@ -25,6 +25,7 @@ typeset -gU cdpath fpath path
 
 # Zsh search path for executable
 path=(
+  /opt/homebrew/{bin,sbin}
   /usr/local/{bin,sbin}
   $path
 )

@@ -1,7 +1,5 @@
 # -*- mode: zsh -*-
 
-export PROJECTS_DIR=$HOME/Projects
-
 # GRC colorizes nifty unix tools all over the place
 if which gls >/dev/null 2>&1; then
   source $(brew --prefix)/etc/grc.sh
@@ -9,6 +7,7 @@ fi
 
 if which nvim >/dev/null 2>&1; then
   alias vi=nvim
+  alias vim=nvim
 fi
 
 # Enable aliases to be sudo’ed
@@ -24,7 +23,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias ls='exa' # A better ls https://the.exa.website/
-
 alias lsa='ls -a'
 alias lsd='ls -d .*'
 alias l='ll'
@@ -48,7 +46,20 @@ alias ns='npm start'
 alias nf='npm cache clean && rm -rf node_modules && npm install'
 alias nlg='npm list --global --depth=0'
 
+alias y='yarn'
+alias ya='yarn add'
+alias yad='yarn add --dev'
+alias yr='yarn remove'
+
 alias g="git"
+alias go='git checkout'
+alias gom='git checkout main'
+alias gc='git commit'
+alias gps='git push'
+alias gpsuo='git push --set-upstream origin'
+alias gpl='git pull --recurse-submodules'
+alias gcl='git clone --recursive'
+
 alias gpgfix="export GPG_TTY=$(tty)"
 alias o="open"
 alias oo="open ."

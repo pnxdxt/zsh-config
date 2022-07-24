@@ -9,9 +9,6 @@ zload()    { zinit load                           "${@}"; }
 zlight()   { zinit light                          "${@}"; }
 zsnippet() { zinit snippet                        "${@}"; }
 
-zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" lucid
-zlight direnv/direnv
-
 # Prompt : https://github.com/starship/starship
 zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
 zload starship/starship
@@ -42,7 +39,7 @@ zlight zdharma/fast-syntax-highlighting
 
 turbo1; zload zdharma/history-search-multi-word
 
-turbo2; zlight junegunn/fzf
+turbo2; zload rupa/z
 
 turbo2; zlight djui/alias-tips
 

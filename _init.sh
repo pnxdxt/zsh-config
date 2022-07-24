@@ -7,6 +7,7 @@ if [[ "x$SYSTEM" = "xDarwin" ]]; then
     #export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
     # local system binaries
     export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+    export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH
 fi
 
 # Non-default homebrew install
