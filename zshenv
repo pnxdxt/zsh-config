@@ -18,5 +18,3 @@ fi
 
 # Home-made scripts
 export PATH=$PATH:${HOME}/.bin
-export PATH="$(yarn global bin):$PATH"
-source "$HOME/.cargo/env" && . "$HOME/.cargo/env"

@@ -35,13 +35,15 @@ zlight zsh-users/zsh-completions
 
 # Syntax highlighting
 turbo0 atinit'zpcompinit; zpcdreplay'
-zlight zdharma/fast-syntax-highlighting
+zlight zdharma-continuum/fast-syntax-highlighting
 
-turbo1; zload zdharma/history-search-multi-word
+turbo1; zload zdharma-continuum/history-search-multi-word
 
 turbo2; zload rupa/z
 
 turbo2; zlight djui/alias-tips
+
+turbo2; zlight conda-incubator/conda-zsh-completion
 
 # REMOVE TEMPORARY FUNCTIONS
 unset -f turbo0

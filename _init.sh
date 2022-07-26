@@ -21,7 +21,7 @@ export PATH=$PATH:$HOME/usr/local/bin
 #-----------------------------------------------------
 # bootstrap the zinit script
 #
-source "$HOME/.zinit/bin/zinit.zsh"
+source "$HOME/.zinit/bin/zi.zsh"
 
 # and load the plugins
 source "$HOME/.zsh-config/zinit.zsh"
