@@ -1,17 +1,8 @@
 #!/usr/bin/env zsh
 
-# FUNCTIONS TO MAKE CONFIGURATION LESS VERBOSE
-turbo0()   { zinit ice wait"0a" lucid             "${@}"; }
-turbo1()   { zinit ice wait"0b" lucid             "${@}"; }
-turbo2()   { zinit ice wait"0c" lucid             "${@}"; }
-zcommand() { zinit ice wait"0b" lucid as"command" "${@}"; }
-zload()    { zinit load                           "${@}"; }
-zlight()   { zinit light                          "${@}"; }
-zsnippet() { zinit snippet                        "${@}"; }
-
 # Prompt : https://github.com/starship/starship
 zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
-zload starship/starship
+zinit load starship/starship
 
 # Don't bind these keys until ready
 bindkey -r '^[[A'
@@ -22,32 +13,31 @@ function __bind_history_keys() {
 }
 
 # History substring searching
-turbo0 atload'__bind_history_keys'
-zlight zsh-users/zsh-history-substring-search
+zinit ice wait"0a" lucid atload'__bind_history_keys'
+zinit light zsh-users/zsh-history-substring-search
+
+zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light trapd00r/LS_COLORS
 
 # autosuggestions, trigger precmd hook upon load
-turbo0 atload'_zsh_autosuggest_start'
-zlight zsh-users/zsh-autosuggestions
+zinit ice wait"0a" lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
 
 # Tab completions
-turbo0 blockf atpull'zinit creinstall -q .'
-zlight zsh-users/zsh-completions
+zinit ice wait"0a" lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
 
 # Syntax highlighting
-turbo0 atinit'zpcompinit; zpcdreplay'
-zlight zdharma-continuum/fast-syntax-highlighting
+zinit ice wait"0a" lucid atinit'zpcompinit; zpcdreplay'
+zinit light zdharma-continuum/fast-syntax-highlighting
 
-turbo1; zload zdharma-continuum/history-search-multi-word
+zinit ice wait"0b" lucid
+zinit load zdharma-continuum/history-search-multi-word
 
-turbo2; zload rupa/z
+zinit ice wait"0c" lucid
+zinit load agkozak/zsh-z
 
-turbo2; zlight djui/alias-tips
-
-turbo2; zlight conda-incubator/conda-zsh-completion
-
-# REMOVE TEMPORARY FUNCTIONS
-unset -f turbo0
-unset -f turbo1
-unset -f turbo2
-unset -f zload
-unset -f zlight
+zinit ice wait"0c" lucid
+zinit pack"default+keys" for fzf

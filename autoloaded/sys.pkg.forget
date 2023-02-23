@@ -1,5 +1,0 @@
-if [[ $# > 0 ]]; then
-	sudo pkgutil --forget $1
-else
-	echo "$0 name.pkg"
-fi

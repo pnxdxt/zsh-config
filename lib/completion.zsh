@@ -1,6 +1,4 @@
 #!/usr/bin/env zsh
-# vim:syntax=zsh
-# vim:filetype=zsh
 
 ################################################################################
 # https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh
@@ -10,10 +8,9 @@
 
 
 # Zsh Options
-#
 unsetopt menu_complete     # do not autoselect the first completion entry
 unsetopt flow_control      # disable start/stop characters in shell editor
-unsetopt case_glob         # makes globbing (filename generation) case-sensitive 
+unsetopt case_glob         # makes globbing (filename generation) case-sensitive
 
 setopt always_to_end       # move cursor to the end of a completed word
 setopt auto_menu           # show completion menu on a successive tab press
@@ -50,10 +47,6 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
-# https://goo.gl/wFKHYw
-#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' '+r:|?=**'
-# https://goo.gl/zuzuP2
-#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 # https://goo.gl/QwQgwN
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 

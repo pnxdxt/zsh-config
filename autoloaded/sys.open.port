@@ -1,2 +1,4 @@
+#!/usr/bin/env zsh
+
 # show listening ports
 lsof -i -P | grep -i 'listen'

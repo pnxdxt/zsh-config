@@ -1,1 +1,4 @@
+#!/usr/bin/env zsh
+# show open IP6 connections
+
 lsof -Pnl +M -i6

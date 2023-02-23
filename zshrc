@@ -1,17 +1,13 @@
 #!/usr/bin/env zsh
-# vim:syntax=zsh
-# vim:filetype=zsh
 
 # for profiling zsh
 # https://unix.stackexchange.com/a/329719/27109
-#
 #zmodload zsh/zprof
 
 GPG_TTY=$(tty)
 export GPG_TTY
-export SCRIPTS=${HOME}/scripts
-export ZSHCONFIG=${ZDOTDIR:-$HOME}/.zsh-config
 
+export ZSHCONFIG=${ZDOTDIR:-$HOME}/.zsh-config
 ZSH_INIT=${ZSHCONFIG}/_init.sh
 
 if [[ -s ${ZSH_INIT} ]]; then
@@ -20,10 +16,8 @@ else
   echo "Could not find the init script ${ZSH_INIT}"
 fi
 
-#
 # https://gist.github.com/ctechols/ca1035271ad134841284
 # https://carlosbecker.com/posts/speeding-up-zsh
-#
 autoload -Uz compinit
 
 case $SYSTEM in
@@ -39,10 +33,4 @@ Linux)
   ;;
 esac
 
-# see zinit.zsh with Turbo Mode
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval "$(fnm env)"
-
-# Private script here
-[ -f ~/.private.zsh ] && source ${HOME}/.private.zsh
+add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea

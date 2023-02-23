@@ -6,6 +6,11 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
+# pnpm
+export PNPM_HOME="/Users/pnodet/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
 # FNM
 export PATH="/var/folders/m2/r9_k9tb904x21r8zmdgs98br0000gn/T/fnm_multishell_38232_1613545934215/bin":$PATH
 export FNM_MULTISHELL_PATH="/var/folders/m2/r9_k9tb904x21r8zmdgs98br0000gn/T/fnm_multishell_38232_1613545934215"

@@ -1,6 +1,5 @@
-# -------------------------------------------------------------------
+#!/usr/bin/env zsh
 # display a neatly formatted PATH content with colors
-# -------------------------------------------------------------------
 
 echo $PATH | tr ":" "\n" | \
 awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \

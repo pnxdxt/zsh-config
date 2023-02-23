@@ -1,13 +1,8 @@
-# -*- mode: zsh -*-
+#!/usr/bin/env zsh
 
-# GRC colorizes nifty unix tools all over the place
-if which gls >/dev/null 2>&1; then
-  source $(brew --prefix)/etc/grc.sh
-fi
-
-if which nvim >/dev/null 2>&1; then
-  alias vi=nvim
-  alias vim=nvim
+if which lvim >/dev/null 2>&1; then
+  alias vi=lvim
+  alias vim=lvim
 fi
 
 # Enable aliases to be sudo’ed
@@ -22,7 +17,6 @@ alias ...='cd ../..'
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias ls='exa' # A better ls https://the.exa.website/
 alias lsa='ls -a'
 alias lsd='ls -d .*'
 alias l='ll'
@@ -37,8 +31,6 @@ alias ls.recursive='ls -R'
 alias ni='npm install'
 alias nid='npm install --save-dev'
 alias nig='npm install --global'
-alias nt='npm test'
-alias nit='npm install && npm test'
 alias nk='npm link'
 alias nr='npm run'
 alias nrf='npm run format'
@@ -49,36 +41,28 @@ alias nlg='npm list --global --depth=0'
 alias y='yarn'
 alias ya='yarn add'
 alias yad='yarn add --dev'
-alias yr='yarn remove'
+alias yr='yarn run'
 
 alias g="git"
-alias go='git checkout'
-alias gom='git checkout main'
-alias gc='git commit'
-alias gps='git push'
-alias gpsuo='git push --set-upstream origin'
-alias gpl='git pull --recurse-submodules'
-alias gcl='git clone --recursive'
 
 alias gpgfix="export GPG_TTY=$(tty)"
+
 alias o="open"
 alias oo="open ."
 alias co="code ."
 
-# diff
-alias diff='colordiff'
+alias diff='colordiff' # diff
 
 alias ssh="ssh -A" # Remote
 
-alias myip='dig +short myip.opendns.com @resolver1.opendns.com' # what is my ip?
+alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2'
 alias speedtest='fast -u --single-line'
 alias meteo="curl -4 http://wttr.in/Paris"
 alias week='date +%V'          # Get week number
 alias cdate='date "+%d—%m—%Y"' # Get date
 
-# Echo path
 alias path='echo -e ${PATH//:/\\n}'
-alias reload=". ~/.zshrc"
+alias reload="exec zsh"
 
 # DNS cache Flush
 alias dnscacheflush="sudo killall -HUP mDNSResponder"
@@ -86,11 +70,4 @@ alias dnscf="sudo killall -HUP mDNSResponder"
 alias dcf="sudo killall -HUP mDNSResponder"
 
 alias generate-password="repeat 10 {openssl rand -base64 18}"
-
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias killchrome="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-# Update installed Ruby gems, Homebrew, npm, and their installed packages
-alias brew_update="brew -v update; brew upgrade --force-bottle; brew cleanup; brew doctor; npm-check -g -u"
-alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-document'
+alias brew_update="brew -v update; brew upgrade --force-bottle; brew cleanup; brew doctor"

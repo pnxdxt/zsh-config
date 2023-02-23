@@ -1,2 +1,0 @@
-sudo rm -vf /var/log/*.[0-9].*
-sudo rm -vf /var/log/*.[0-9]

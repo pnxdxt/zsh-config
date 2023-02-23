@@ -1,3 +1,5 @@
-# https://justin.abrah.ms/dotfiles/zsh.html
+#!/usr/bin/env zsh
 # make a dir and change to that dir
+# https://justin.abrah.ms/dotfiles/zsh.html
+
 mkdir -p $1 && cd $1;

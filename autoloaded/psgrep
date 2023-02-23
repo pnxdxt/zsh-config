@@ -1,6 +1,0 @@
-# https://justin.abrah.ms/dotfiles/zsh.html
-if [ ! -z $1 ] ; then
-	ps aux | grep $1 | grep -v grep
-else
-	echo "!! Need name to grep for"
-fi

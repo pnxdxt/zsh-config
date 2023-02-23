@@ -1,14 +1,11 @@
 #!/usr/bin/env zsh
-# vim:syntax=zsh
-# vim:filetype=zsh
 
 ZSHCONFIG=${HOME}/.zsh-config
 
 function zsh_bootstrap() {
-    # need zinit
     echo "Cloning zinit"
     mkdir -p ~/.zinit
-    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+    git clone https://github.com/zdharma-continuum/zinit.git ~/.zinit/bin
 
     echo "Link resource files to ${HOME}"
     ln -sf ${ZSHCONFIG}/zlogin ${HOME}/.zlogin
