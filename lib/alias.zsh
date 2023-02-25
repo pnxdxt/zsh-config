@@ -3,20 +3,26 @@
 if which lvim >/dev/null 2>&1; then
   alias vi=lvim
   alias vim=lvim
+  alias nvim=lvim
 fi
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
 # Undollar
-alias $=" "
+alias \$=''
 
 # change dir
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias cdd='dirs -v && read index && let "index=$index+0" && cd ~"$index" && let "index=$index+1" && popd -q +"$index"'
 
+alias :e=vim
+alias c='clear'
+
+alias ls='exa'
 alias lsa='ls -a'
 alias lsd='ls -d .*'
 alias l='ll'
@@ -61,7 +67,6 @@ alias meteo="curl -4 http://wttr.in/Paris"
 alias week='date +%V'          # Get week number
 alias cdate='date "+%d—%m—%Y"' # Get date
 
-alias path='echo -e ${PATH//:/\\n}'
 alias reload="exec zsh"
 
 # DNS cache Flush

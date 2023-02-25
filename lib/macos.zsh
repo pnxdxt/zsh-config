@@ -6,18 +6,6 @@
 
 # GNU ls aliases
 # For macOS where GNU ls is installed via homebrew as `gls`
-case $SYSTEM in
-Darwin)
-	if which gls >/dev/null 2>&1; then
-		alias ls="gls --color=auto"
-		alias ll="gls -l --color=auto"
-	fi
-	;;
-Linux)
-	alias ls='ls --color=auto'
-	alias ll="ls -l --color=auto"
-	;;
-esac
 
 function handle-multi-arguments() {
 	if [ ! "$#" -gt 1 ]; then

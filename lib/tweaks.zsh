@@ -15,11 +15,15 @@ setopt interactive_comments # Comments even in interactive shells.
 setopt pushd_ignore_dups    # Do not store duplicates in the stack.
 setopt pushd_silent         # Do not print the directory stack after pushd or popd.
 setopt pushd_to_home        # Push to home directory when no argument is given.
+setopt pushdminus
 setopt cdable_vars          # Change directory to a path stored in a variable.
 setopt auto_name_dirs       # Auto add variable-stored paths to ~ list.
 setopt multios              # Write to multiple descriptors.
 setopt extended_glob        # Use extended globbing syntax.
 setopt clobber              # Turn off warning "file exists" with > and >>
+
+unsetopt LIST_BEEP     		 # disable bell when listing completions
+unsetopt BEEP 						 # disable bell
 
 #-----------------------------------------------------
 # Automatically expanding zsh global aliases

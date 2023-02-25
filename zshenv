@@ -16,4 +16,3 @@ fi
 
 # Home-made scripts
 export PATH=$PATH:${HOME}/.bin
-

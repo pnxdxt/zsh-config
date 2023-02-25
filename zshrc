@@ -2,10 +2,11 @@
 
 # for profiling zsh
 # https://unix.stackexchange.com/a/329719/27109
-#zmodload zsh/zprof
+# zmodload zsh/zprof
 
 GPG_TTY=$(tty)
 export GPG_TTY
+export CLICOLOR=1
 
 export ZSHCONFIG=${ZDOTDIR:-$HOME}/.zsh-config
 ZSH_INIT=${ZSHCONFIG}/_init.sh
@@ -33,4 +34,27 @@ Linux)
   ;;
 esac
 
-add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
+tea() {
+	source <(tea -Eds)
+}
+
+fetch() {
+	emulate -L zsh
+  set -- "$(git rev-parse --show-toplevel 2>/dev/null)"
+  # If cd'ing into a git working copy and not within the same working copy
+  if [ -n "$1" ] && [ "$1" != "$vc_root" ]; then
+		vc_root="$1"
+		last_commit=$(git --no-pager log -1 --format="%at")
+		one_day_ago=$(date -v -1d '+%s')
+		if (($last_commit < $one_day_ago)); then
+			echo "Fetching..."
+  		git fetch --quiet
+		fi
+  fi
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd tea
+add-zsh-hook chpwd fetch
+
+# zprof
