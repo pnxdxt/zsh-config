@@ -12,44 +12,46 @@ export ZSHCONFIG=${ZDOTDIR:-$HOME}/.zsh-config
 ZSH_INIT=${ZSHCONFIG}/_init.sh
 
 if [[ -s ${ZSH_INIT} ]]; then
-  source ${ZSH_INIT}
+	source ${ZSH_INIT}
 else
-  echo "Could not find the init script ${ZSH_INIT}"
+	echo "Could not find the init script ${ZSH_INIT}"
 fi
 
-# https://gist.github.com/ctechols/ca1035271ad134841284
-# https://carlosbecker.com/posts/speeding-up-zsh
-autoload -Uz compinit
+#
+# Completion enhancements
+#
+[[ ${TERM} != dumb ]] && () {
+  # Load and initialize the completion system
+  local zstats zold_dat
+	local zcompdump=${ZDOTDIR:-${HOME}}/.zcompdump
 
-if [[ "x$SYSTEM" == "xDarwin" ]]; then
-  if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump(Nm-20)) ]; then
-    compinit
-  else
-    compinit -C
+  # Check if dumpfile is up-to-date by comparing the full path and
+  # last modification time of all the completion functions in fpath.
+  local -i zdump_dat=1
+  local -r zcomps=(${^fpath}/^([^_]*|*~|*.zwc)(N))
+
+	if (( ${#zcomps} )); then
+    zmodload -F zsh/stat b:zstat
+    zstat -A zstats +mtime ${zcomps}
   fi
-fi
 
-tea() {
-	source <(tea -Eds)
-}
-
-fetch() {
-	emulate -L zsh
-  set -- "$(git rev-parse --show-toplevel 2>/dev/null)"
-  # If cd'ing into a git working copy and not within the same working copy
-  if [ -n "$1" ] && [ "$1" != "$vc_root" ]; then
-		vc_root="$1"
-		last_commit=$(git --no-pager log -1 --format="%at")
-		one_day_ago=$(date -v -1d '+%s')
-		if (($last_commit < $one_day_ago)); then
-			echo "Fetching..."
-  		git fetch --quiet
-		fi
+  local -r znew_dat=${ZSH_VERSION}$'\0'${(pj:\0:)zcomps}$'\0'${(pj:\0:)zstats}
+  if [[ -e ${zcompdump}.dat ]]; then
+    zmodload -F zsh/system b:sysread
+    sysread -s ${#znew_dat} zold_dat <${zcompdump}.dat
+    [[ ${zold_dat} == ${znew_dat} ]]; zdump_dat=${?}
   fi
-}
 
-autoload -Uz add-zsh-hook
-add-zsh-hook chpwd tea
-add-zsh-hook chpwd fetch
+  if (( zdump_dat )) command rm -f ${zcompdump}(|.dat|.zwc(|.old))(N)
+
+	autoload -Uz compinit && compinit -C -d ${zcompdump}
+
+	if [[ ! ${zcompdump}.dat -nt ${zcompdump} ]]; then
+		>! ${zcompdump}.dat <<<${znew_dat}
+	fi
+
+	# Compile the completion dumpfile; significant speedup
+	if [[ ! ${zcompdump}.zwc -nt ${zcompdump} ]] zcompile ${zcompdump}
+}
 
 # zprof

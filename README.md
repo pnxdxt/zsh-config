@@ -5,29 +5,21 @@ This configuration is for my macOS workstation and therefore contain some macOS-
 ## Quick Start
 
 ```sh
-# get to the home folder
-$ cd
-# pull the git repos
-$ git clone https://github.com/pnxdxt/zsh-config.git ~/.zsh-config
-# then link the startup files
-$ zsh ~/.zsh-config/bootstrap.sh
+bash <(curl --fail --show-error --silent --location https://raw.githubusercontent.com/pnxdxt/tmp/main/init.sh)
 ```
-
-Log out and login again!!!
-
-In case you want to have private setting excluded from public Git repos, just create a file `.private.sh` in the home folder.
 
 ## Plugin Management
 
 If your default shell is not `zsh`, make it zsh and open a new terminal and plugins will automatically start installing.
 
-I use [zinit](https://github.com/zdharma/zinit) with Turbo Mode to accelerate the loading and checking of ZSH plugins. Thus, `zinit` will be install be installed via the `bootstrap.sh` script above.
+I use [zinit](https://github.com/zdharma/zinit) with Turbo Mode to accelerate the loading and checking of ZSH plugins.
+Thus, `zinit` will be install be installed via the `init.sh` script above.
 
 ## Credits
 
-Forked from: https://github.com/tracphil/my-zsh
+Forked from: https://htr3n.github.io/2018/07/faster-zsh/
 
-Refactored from: https://htr3n.github.io/2018/07/faster-zsh/
+Refactored from: https://github.com/tracphil/my-zsh
 
 ## License
 
