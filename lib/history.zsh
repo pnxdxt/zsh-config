@@ -4,7 +4,6 @@ export HISTFILE=${HOME}/.history
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 
-
 setopt APPEND_HISTORY         # Allow multiple sessions to append to one Zsh command history.
 setopt EXTENDED_HISTORY       # show timestamp in history ":start:elapsed;command"
 setopt HIST_EXPIRE_DUPS_FIRST # allow dups, but expire old ones when exceeding HISTSIZE

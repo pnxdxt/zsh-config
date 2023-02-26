@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 if which lvim >/dev/null 2>&1; then
-  alias vi=lvim
-  alias vim=lvim
-  alias nvim=lvim
+	alias vi=lvim
+	alias vim=lvim
+	alias nvim=lvim
 fi
 
 # Enable aliases to be sudo’ed

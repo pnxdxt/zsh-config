@@ -4,8 +4,8 @@
 # Executes commands at login before zshrc.
 #
 if [[ -z "$LANG" ]]; then
-    export LANG='en_US.UTF-8'
-    export LANGUAGE=en_US.UTF-8
+	export LANG='en_US.UTF-8'
+	export LANGUAGE=en_US.UTF-8
 fi
 
 export LC_COLLATE=en_US.UTF-8
@@ -23,7 +23,7 @@ typeset -gU cdpath fpath path
 
 # Zsh search path for executable
 path=(
-  /opt/homebrew/{bin,sbin}
-  /usr/local/{bin,sbin}
-  $path
+	/opt/homebrew/{bin,sbin}
+	/usr/local/{bin,sbin}
+	$path
 )

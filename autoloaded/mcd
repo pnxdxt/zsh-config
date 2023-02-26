@@ -2,4 +2,4 @@
 # make a dir and change to that dir
 # https://justin.abrah.ms/dotfiles/zsh.html
 
-mkdir -p $1 && cd $1;
+mkdir -p $1 && cd $1

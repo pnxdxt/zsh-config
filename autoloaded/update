@@ -5,6 +5,6 @@
 
 local brew="echo ; echo 'UPDATING HOMEBREW'; echo ; brew -v update; brew upgrade --cask; brew upgrade --force-bottle; brew cleanup; brew doctor;"
 local zshconfig="echo ; echo 'UPDATING ZSH-CONFIG'; echo ; cd ${HOME}/.dotfiles/zsh-config; git pull origin master;"
-local plugins="echo ; echo 'UPDATING zinit'; echo ; zinit update --all; zinit self-update";
+local plugins="echo ; echo 'UPDATING zinit'; echo ; zinit update --all; zinit self-update"
 
 sh -c $brew$zshconfig$plugins

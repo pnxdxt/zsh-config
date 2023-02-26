@@ -21,18 +21,13 @@ fi
 # https://carlosbecker.com/posts/speeding-up-zsh
 autoload -Uz compinit
 
-case $SYSTEM in
-Darwin)
+if [[ "x$SYSTEM" == "xDarwin" ]]; then
   if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump(Nm-20)) ]; then
     compinit
   else
     compinit -C
   fi
-  ;;
-Linux)
-  # not yet match GNU & BSD stat
-  ;;
-esac
+fi
 
 tea() {
 	source <(tea -Eds)

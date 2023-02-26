@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 if [[ "x$SYSTEM" = "xDarwin" ]]; then
-    # local system binaries
-    export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-    export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH
+	# local system binaries
+	export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+	export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH
 fi
 
 # Non-default homebrew install
@@ -29,9 +29,9 @@ export STARSHIP_CONFIG=~/.config/starship.toml
 #
 my_zsh_paths=${ZSHCONFIG}/paths
 if [[ -d "$my_zsh_paths" ]]; then
-    for file in $my_zsh_paths/*.zsh; do
-        source $file
-    done
+	for file in $my_zsh_paths/*.zsh; do
+		source $file
+	done
 fi
 unset my_zsh_paths
 
@@ -40,9 +40,9 @@ unset my_zsh_paths
 #
 my_zsh_lib=${ZSHCONFIG}/lib
 if [[ -d "$my_zsh_lib" ]]; then
-    for file in $my_zsh_lib/*.zsh; do
-        source $file
-    done
+	for file in $my_zsh_lib/*.zsh; do
+		source $file
+	done
 fi
 unset my_zsh_lib
 
@@ -53,9 +53,9 @@ my_zsh_fpath=${ZSHCONFIG}/autoloaded
 fpath=($my_zsh_fpath $fpath)
 
 if [[ -d "$my_zsh_fpath" ]]; then
-    for func in $my_zsh_fpath/*; do
-        autoload -Uz ${func:t}
-    done
+	for func in $my_zsh_fpath/*; do
+		autoload -Uz ${func:t}
+	done
 fi
 unset my_zsh_fpath
 

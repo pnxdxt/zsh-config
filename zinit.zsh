@@ -8,8 +8,8 @@ zinit load starship/starship
 bindkey -r '^[[A'
 bindkey -r '^[[B'
 function __bind_history_keys() {
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
+	bindkey '^[[A' history-substring-search-up
+	bindkey '^[[B' history-substring-search-down
 }
 
 # History substring searching
@@ -17,8 +17,8 @@ zinit ice wait"0a" lucid atload'__bind_history_keys'
 zinit light zsh-users/zsh-history-substring-search
 
 zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
-    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+	atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+	atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zinit light trapd00r/LS_COLORS
 
 # autosuggestions, trigger precmd hook upon load
