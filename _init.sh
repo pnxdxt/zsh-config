@@ -16,7 +16,16 @@ export PATH=$PATH:$HOME/usr/local/bin:$HOME/.local/bin
 
 #-----------------------------------------------------
 # bootstrap the zinit script
-source "$HOME/.zinit/bin/zi.zsh"
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+	print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+	command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+	command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" &&
+		print -P "%F{33} %F{34}Installation successful.%f%b" ||
+		print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
 
 # and load the plugins
 source "$HOME/.zsh-config/zinit.zsh"
@@ -58,15 +67,6 @@ if [[ -d "$my_zsh_fpath" ]]; then
 	done
 fi
 unset my_zsh_fpath
-
-#-----------------------------------------------------
-# Development stuffs
-#
-dev_config_init=${SCRIPTS}/dev-config/_init.sh
-
-[[ -f "$dev_config_init" ]] && source "$dev_config_init"
-
-unset dev_config_init
 
 #-----------------------------------------------------
 # after all, set the PATH for macOS
